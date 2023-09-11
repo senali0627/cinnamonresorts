@@ -1,0 +1,518 @@
+:root{
+ 
+    --fontheading:'Gelasio', serif ;
+    --fontsubheading:'Cookie', cursive;
+    --fontnormal: 'Caladea', serif;
+    --primary-color: #264ead;
+    --primary-color-dark: #6e8fdc;
+    --text-dark: #1592b2;
+    --text-light: #4699ff;
+    --extra-light: #f3f4f6;
+    --white: #ffffff;
+    --max-width: 1200px;
+    --navyblue:#072a57;
+
+      
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+a{
+    text-decoration: none;
+}
+.navbar{
+    margin: 0;
+    font-family: var(--fontheading);
+    position: sticky;
+    top:0;
+    z-index: 20;
+}
+
+.header{
+    background:  linear-gradient(rgba(121, 154, 234, 0.6),rgba(34, 42, 102, 0.9));
+    width: 100%;
+    z-index: 20;
+    height: 114px;
+    
+}
+
+.header ul{
+    margin: 20 0 0 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+    
+    
+}
+.header ul a{
+    display: block;
+    padding: 20px 0 0 0;
+    text-decoration: none;
+    font-family: var(--fontheading);
+    text-align: center;
+    color: rgb(255, 255, 255);
+
+}
+.header ul a:hover{
+    color: rgb(27, 60, 172);
+    text-transform: uppercase;
+}
+.header .logo{
+    float: left;
+    display: block;
+}
+.header .logo img{
+    width: 110px;
+    height: 110px;
+    margin-left: 10vw;
+    box-shadow:  5px 5px 5px 5px rgba(255, 255, 255, 0.15);
+}
+.header .menu{
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+.header .menu-icon{
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+.header .menu-icon .nav-icon{
+    background: white;
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+.header .menu-icon .nav-icon:before{
+    background: white;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 5px;
+    transition: all .2s ease-out;
+}
+
+.header .menu-icon .nav-icon:after{
+    background: white;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: -5px;
+    transition: all .2s ease-out;
+}
+
+.header .menu-btn{
+    display: none;
+}
+.header .menu-btn:checked ~ .menu{
+    max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon{
+    background: transparent;
+
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:before{
+    transform: rotate(-45deg);
+    top: 0;
+    
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:after{
+    transform: rotate(45deg);
+    top: 0;
+    
+}
+@media (min-width:1250px){
+    
+    .header li{
+        float: left;
+    }
+    .header li a{
+        padding: 45px 15px;
+        font-size: 15pt;
+        
+    }
+    .header .menu{
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    .header .menu-icon{
+        display: none;
+    }
+}
+
+
+/*styling main image container*/
+.event__container {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+.event__image__container {
+    position: relative;
+    min-height: 500px;
+    background-image: linear-gradient(
+        to right,
+        rgba(9, 55, 114, 0.8),
+        rgba(0, 0, 0, 0.1)
+      ),
+      url("./wedding\ \(4\).jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 2rem;
+    margin-top: 20px;
+  }
+  
+.event__content{
+    max-width: 600px;
+    padding: 5rem 2rem;
+}
+  
+.event__content h1 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 600;
+    color:rgb(255, 255, 255) ;
+    text-align: center;
+} 
+.event__content p{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-align: center;
+} 
+
+/*styling hovercards of three types of weddings*/
+.wedding-card-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+}
+.wedding-card-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2%;
+    column-gap: 2%;
+}
+.wedding-card-image{
+    width: 30%;
+    position: relative;  
+    overflow: hidden;
+}
+.wedding-card-image img{
+    width: 100%;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+}
+.wedding-content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: all .3s ease-out;
+}
+.wedding-content h2{
+    font-weight: 900;
+    font-size: clamp(10px,1.8vw,80px);
+    color: white;
+}
+.wedding-content p{
+    font-weight: 900;
+    font-size: clamp(5px,1.5vw,80px);
+    color: white;
+}
+.wedding-content:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.wedding-content >*{
+    transform: translateY(25px);
+    transition: 0.3s;
+}
+.wedding-content:hover>*{
+    transform: translateY(0px);
+}
+
+.wedding-content .info-btn{
+    color: #ffffff;
+    background: #0b9585;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    transition-property: background;
+
+}
+.wedding-content .info-btn:hover{
+    background: #0b6393;
+    color: #ffffff;
+}
+@media (max-width:800px){
+    .wedding-card-container{
+        flex-direction: column;
+    }
+    .wedding-card-wrapper{
+        flex-direction: column;
+    }
+    .wedding-card-image{
+        width: 50%;
+        padding-top: 5%;
+    }
+}
+
+       
+/*reward section*/
+.reward__container {
+    padding-top: 4rem;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+    padding-bottom: 1rem;
+
+  }
+  
+
+  .reward__container h4 {
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .reward__btn {
+    padding: 1rem 3rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: rgb(11, 152, 170);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .reward__btn a{
+    color: rgb(0, 0, 0);
+    font-size: 2vmin;
+  }
+  .reward__btn:hover {
+    background-color: rgb(255, 255, 255);
+  }
+  
+
+  /*footer*/
+
+footer {
+    position: static;
+    bottom: 0;
+    
+}
+
+@media (max-height:800px) {
+    footer {
+        position: static;
+    }
+    
+}
+
+.footer-distributed {
+    background-color: #2c3855;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;
+    margin-top: 80px;
+}
+
+.footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+    width: 30%;
+}
+
+.footer-distributed h3 {
+    color: #ffffff;
+    font: normal 36px var(--fontheading), cursive;
+    margin: 0;
+}
+
+
+.footer-distributed h3 span {
+    color: #536f9e;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-hotel-name {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center .material-symbols-outlined {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin-right:10px;
+}
+
+
+ 
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+    color: #f8ffab;
+    text-decoration: none;
+    ;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+    width: 30%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+.footer-distributed .footer-icons img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+.footer-distributed .footer-icons a:hover {
+    background-color: #0a5fe0;
+}
+
+.footer-links a:hover {
+    color: #219971;
+}
+
+@media (max-width: 880px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center .material-symbols-outlined {
+        margin-left: 0;
+    }
+}
